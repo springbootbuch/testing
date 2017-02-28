@@ -27,7 +27,8 @@ public class DisablePrimaryConfigurationTest {
 
 	@Test
 	public void serviceNotLoaded() {
-		expectedException.expect(NoSuchBeanDefinitionException.class);
+		expectedException.expect(
+			NoSuchBeanDefinitionException.class);
 		applicationContext.getBean(SomeService.class);
 	}
 }
