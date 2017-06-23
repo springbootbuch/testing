@@ -10,7 +10,9 @@ public class SomeService {
 
 	private final RestTemplate restTemplate;
 
-	public SomeService(final RestTemplateBuilder restTemplateBuilder) {
+	public SomeService(
+		RestTemplateBuilder restTemplateBuilder
+	) {
 		this.restTemplate = restTemplateBuilder.build();
 	}
 
