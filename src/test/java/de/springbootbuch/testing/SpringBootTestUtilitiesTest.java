@@ -1,24 +1,22 @@
 package de.springbootbuch.testing;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
-import org.junit.Rule;
-import org.junit.Test;
-import org.springframework.boot.test.rule.OutputCapture;
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.system.CapturedOutput;
+import org.springframework.boot.test.system.OutputCaptureExtension;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 
+@ExtendWith(OutputCaptureExtension.class)
 public class SpringBootTestUtilitiesTest {
-
-	@Rule
-	public OutputCapture output = new OutputCapture();
 
 	private final TestRestTemplate template 
 		= new TestRestTemplate();
 
 	@Test
-	public void testRequest() throws Exception {
+	public void testRequest(CapturedOutput output) {
 		System.out.println("Using TestRestTemplate");
 		String greeting = template.getForObject(
 			"http://www.mocky.io/v2/58b5b1c61000009917ea574b", 
