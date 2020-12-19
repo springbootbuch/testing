@@ -22,7 +22,7 @@ public class AddToPrimaryConfigurationTest {
 
 	@Test
 	void serviceNotLoaded() {
-		assertNotNull(applicationContext.getBean(MyConfig.class));
+		assertNotNull(applicationContext.getBean(SomeService.class));
 	}
 	
 }
